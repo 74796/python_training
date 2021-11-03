@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
 import unittest
+
 from group import Group
+
 
 def is_alert_present(wd):
     try:
