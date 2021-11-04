@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import pytest
-
 from group import Group
 from application import Application
 
