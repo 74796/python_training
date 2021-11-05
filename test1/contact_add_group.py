@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from summ import Summ
-from application import Application
+from model1.summ import Summ
+from fixture1.application import Application
 import pytest
 
 
