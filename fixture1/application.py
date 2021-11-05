@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
+from fixture1.session import SessionHelper
 
 
 class Application:
@@ -7,14 +8,15 @@ class Application:
     def __init__(self):
         self.wd = webdriver.Firefox()
         self.wd.implicitly_wait(30)
+        self.session = SessionHelper(self)
 
-    def logout(self):
+    def open_home_page(self):
         wd = self.wd
-        wd.find_element_by_link_text("Logout").click()
+        wd.get("http://localhost/addressbook/index.php")
 
-    def return_to_home_page(self):
+    def open_add_new_contact_page(self):
         wd = self.wd
-        wd.find_element_by_link_text("home page").click()
+        wd.find_element_by_link_text("add new").click()
 
     def create_contact(self, summ):
         wd = self.wd
@@ -57,24 +59,9 @@ class Application:
         # submit contact creation
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
 
-    def open_add_new_contact_page(self):
+    def return_to_home_page(self):
         wd = self.wd
-        wd.find_element_by_link_text("add new").click()
-
-    def login(self, username, password):
-        wd = self.wd
-        wd.find_element_by_name("user").click()
-        wd.find_element_by_name("user").clear()
-        wd.find_element_by_name("user").send_keys(username)
-        wd.find_element_by_name("pass").click()
-        wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys(password)
-        wd.find_element_by_id("content").click()
-        wd.find_element_by_xpath("//input[@value='Login']").click()
-
-    def open_home_page(self):
-        wd = self.wd
-        wd.get("http://localhost/addressbook/index.php")
+        wd.find_element_by_link_text("home page").click()
 
     def destroy(self):
         self.wd.quit()
