@@ -2,7 +2,7 @@
 from model.contact_model import Summ
 
 
-def test_contact_add_group(app):
+def test_contact_add(app):
     app.open_home_page()
     app.session.login(username="admin", password="secret")
     app.contact.open_add_new_contact_page()
