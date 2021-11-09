@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from model.group import Group
+from model.group_model import Group
 
 
 def test_add_group(app):
