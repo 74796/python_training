@@ -1,7 +1,8 @@
-class Summ:
+class Contact:
 
-    def __init__(self, name, middlename, lastname, nickname, company, address, mobile, email, bday, bmonth, byear):
-        self.name = name
+    def __init__(self, firstname=None, middlename=None, lastname=None, nickname=None, company=None,
+                 address=None, mobile=None, email=None):
+        self.firstname = firstname
         self.middlename = middlename
         self.lastname = lastname
         self.nickname = nickname
@@ -9,6 +10,3 @@ class Summ:
         self.address = address
         self.mobile = mobile
         self.email = email
-        self.bday = bday
-        self.bmonth = bmonth
-        self.byear = byear
