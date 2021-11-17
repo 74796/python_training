@@ -9,3 +9,12 @@ def test_add_contact(app):
                                        nickname="Adile", company="Django stars", address="Nauki 62A",
                                        mobile="+380935121990", email="adileshemshedinovaa@gmail.com"))
     app.contact.return_to_home_page()
+
+
+def test_add_empty_contact(app):
+    app.open_home_page()
+    app.contact.open_add_new_contact_page()
+    app.contact.create_contact(Contact(firstname="", middlename="", lastname="",
+                                       nickname="", company="", address="",
+                                       mobile="", email=""))
+    app.contact.return_to_home_page()
