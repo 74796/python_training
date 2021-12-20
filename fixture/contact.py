@@ -57,7 +57,7 @@ class ContactHelper:
 
     def return_to_home_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("home page").click()
+        wd.get("http://localhost/addressbook/index.php")
 
     def count(self):
         wd = self.app.wd
@@ -65,9 +65,11 @@ class ContactHelper:
 
     def get_contact_list(self):
         wd = self.app.wd
-        contacts = []
+        self.return_to_home_page()
+        contacts_list = []
         for element in wd.find_elements_by_css_selector("tr[name='entry']"):
-            text = element.text
+            firstname = element.find_element_by_css_selector("td:nth-of-type(3)").text
+            lastname = element.find_element_by_css_selector("td:nth-of-type(2)").text
             id = element.find_element_by_name("selected[]").get_attribute("value")
-            contacts.append(Contact(firstname=text, lastname=text, id=id))
-        return contacts
+            contacts_list.append(Contact(firstname=firstname, lastname=lastname, id=id))
+        return contacts_list
