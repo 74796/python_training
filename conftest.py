@@ -31,5 +31,5 @@ def prepare_contact(app):
     if app.contact.count() == 0:
         app.open_home_page()
         app.contact.open_add_new_contact_page()
-        app.contact.create_contact(Contact(firstname="test"))
+        app.contact.create_contact(Contact(firstname="Added contact"))
         app.contact.return_to_home_page()
