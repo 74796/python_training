@@ -18,7 +18,7 @@ testdata = [Contact(firstname="", middlename="", lastname="", nickname="", compa
                    homephone="+380935121990", mobilephone="+380935121991", workphone="+380935121992",
                    secondaryphone="+380935121993",
                    email="adileshemshedinovaa@gmail.com", email2="test@gmail.com", email3="test1@gmail.com")
-           for i in range(1)
+           for i in range(2)
     ]
 
 
