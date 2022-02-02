@@ -29,10 +29,10 @@ class ContactHelper:
         self.change_field_value("home", contact.homephone)
         self.change_field_value("mobile", contact.mobilephone)
         self.change_field_value("work", contact.workphone)
-        self.change_field_value("phone2", contact.secondaryphone)
         self.change_field_value("email", contact.email)
         self.change_field_value("email2", contact.email2)
         self.change_field_value("email3", contact.email3)
+        self.change_field_value("phone2", contact.secondaryphone)
 
     def create_contact(self, contact):
         wd = self.app.wd
@@ -51,11 +51,12 @@ class ContactHelper:
 
     def modify_first_contact(self):
         wd = self.app.wd
+        self.return_to_home_page()
         self.modify_contact_by_index(0)
 
     def modify_contact_by_index(self, index, new_contact_data):
         wd = self.app.wd
-        self.app.open_home_page()
+        self.return_to_home_page()
         self.select_contact_by_index(index)
         # open contact modification form
         wd.find_element_by_xpath("//img[@alt='Edit']").click()
@@ -130,14 +131,14 @@ class ContactHelper:
         homephone = wd.find_element_by_name("home").get_attribute("value")
         mobilephone = wd.find_element_by_name("mobile").get_attribute("value")
         workphone = wd.find_element_by_name("work").get_attribute("value")
-        secondaryphone = wd.find_element_by_name("phone2").get_attribute("value")
         email = wd.find_element_by_name("email").get_attribute("value")
         email2 = wd.find_element_by_name("email2").get_attribute("value")
         email3 = wd.find_element_by_name("email3").get_attribute("value")
+        secondaryphone = wd.find_element_by_name("phone2").get_attribute("value")
         return Contact(id=id, firstname=firstname, lastname=lastname, middlename=middlename,
                        nickname=nickname, address=address,
-                       homephone=homephone, mobilephone=mobilephone, workphone=workphone, secondaryphone=secondaryphone,
-                       email=email, email2=email2, email3=email3)
+                       homephone=homephone, mobilephone=mobilephone, workphone=workphone,
+                       email=email, email2=email2, email3=email3, secondaryphone=secondaryphone,)
 
     def get_contact_from_view_page(self, index):
         wd = self.app.wd

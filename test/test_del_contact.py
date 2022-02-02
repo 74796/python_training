@@ -2,7 +2,6 @@ from random import randrange
 
 
 def test_delete_some_contact(app, prepare_contact):
-    app.open_home_page()
     old_contacts = app.contact.get_contact_list()
     index = randrange(len(old_contacts))
     app.contact.delete_contact_by_index(index)
